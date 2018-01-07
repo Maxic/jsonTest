@@ -18,14 +18,13 @@ def homepage():
 
 @app.route("/slackTest", methods=['POST'])
 def receiveSlackMessages():
-    print("PRINTING REQUEST FORM")
-    pprint(request.form)
 
-    print("FORM.KEYS[0]")
-    pprint(list(request.form.keys())[0])
+    print("Print all keys: ")
+    for key in request.form.keys():
+        pprint(key)
 
-    data = list(request.form.keys())[0]
 
+    data =  None
     if (data is not None):
         print("Print data[0]: ")
         pprint(data[0])
