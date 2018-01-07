@@ -23,6 +23,8 @@ def receiveSlackMessages():
     for key in request.form.keys():
         pprint(key)
 
+    print("request.form['payload']: ")
+    pprint(request.form['payload'])
 
     data =  None
     if (data is not None):
