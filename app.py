@@ -27,8 +27,8 @@ def receiveSlackMessages():
     data = list(request.form.keys())[0]
 
     if (data is not None):
-        print("Print data['payload']: ")
-        pprint(data['payload'])
+        print("Print data[0]: ")
+        pprint(data[0])
         #js = json.dumps(data['payload'])
         #print(js)
     else:
