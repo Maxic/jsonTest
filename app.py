@@ -18,23 +18,14 @@ def homepage():
 
 @app.route("/slackTest", methods=['POST'])
 def receiveSlackMessages():
+    data = request.form['payload']
 
-    print("Print all keys: ")
-    for key in request.form.keys():
-        pprint(key)
-
-    print("request.form['payload']: ")
-    pprint(request.form['payload'])
-
-    data =  None
     if (data is not None):
-        print("Print data[0]: ")
-        pprint(data[0])
-        #js = json.dumps(data['payload'])
-        #print(js)
+        js = json.dumps(data)
+        print(js)
     else:
         print("Received request, but no data")
-    return Response(data, status=200, mimetype='application/json')
+    return Response(data, status=200)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
