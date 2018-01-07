@@ -1,7 +1,8 @@
 from flask import Flask, request, Response
 from datetime import datetime
-import json
 from pprint import pprint
+import json
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -27,6 +28,8 @@ def receiveSlackMessages():
 
     if (data is not None):
         print("Data: " + data)
+        js = json.dumps(data)
+        print(js)
     else:
         print("Received request, but no data")
     return Response(data, status=200, mimetype='application/json')
