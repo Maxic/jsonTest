@@ -19,7 +19,8 @@ def homepage():
 def receiveSlackMessages():
     pprint(vars(request))
     pprint(dir(request))
-    data = request.data['payload']
+    data = request.data
+    pprint(data)
     if (data is not None):
         js = json.dumps(data)
         print("Json: " + js)
