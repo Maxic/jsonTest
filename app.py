@@ -28,7 +28,8 @@ def receiveSlackMessages():
 
     if (data is not None):
         print("Data: " + data)
-        js = json.dumps(data)
+
+        js = json.dumps(data['payload'])
         print(js)
     else:
         print("Received request, but no data")
