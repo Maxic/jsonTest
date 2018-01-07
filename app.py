@@ -19,13 +19,11 @@ def homepage():
 def receiveSlackMessages():
     pprint(request.form)
     pprint(list(request.form.keys())[0])
-    pprint(list(request.get_jso))
-    data = (list(request.form.keys())[0])
+    pprint(list(request.get_json(force=True)))
+    data = request.get_json(force=True)
 
     pprint(data)
     if (data is not None):
-        js = json.dumps(data)
-        print("Json: " + js)
         print("Data: " + data)
     else:
         print("Received request, but no data")
