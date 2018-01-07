@@ -16,6 +16,7 @@ def homepage():
 
 @app.route("/slackTest", methods=['POST'])
 def receiveSlackMessages():
+    print(request)
     data = request.get_json()
     if (data is not None):
         js = json.dumps(data)
