@@ -1,6 +1,7 @@
 from flask import Flask, request, Response
 from datetime import datetime
 import json
+from pprint import pprint
 app = Flask(__name__)
 
 @app.route('/')
@@ -16,6 +17,8 @@ def homepage():
 
 @app.route("/slackTest", methods=['POST'])
 def receiveSlackMessages():
+    pprint(vars(request))
+    pprint(dir(request))
     data = request.data['payload']
     if (data is not None):
         js = json.dumps(data)
